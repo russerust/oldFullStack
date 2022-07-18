@@ -1,0 +1,15 @@
+C:\Users\dabsd\OneDrive\SEM 3 POLY STUFF\AVP\Assignment 2\ASN2_Student_Resource\SectionA\bin\Debug\net6.0\SectionA.exe
+C:\Users\dabsd\OneDrive\SEM 3 POLY STUFF\AVP\Assignment 2\ASN2_Student_Resource\SectionA\bin\Debug\net6.0\SectionA.deps.json
+C:\Users\dabsd\OneDrive\SEM 3 POLY STUFF\AVP\Assignment 2\ASN2_Student_Resource\SectionA\bin\Debug\net6.0\SectionA.runtimeconfig.json
+C:\Users\dabsd\OneDrive\SEM 3 POLY STUFF\AVP\Assignment 2\ASN2_Student_Resource\SectionA\bin\Debug\net6.0\SectionA.dll
+C:\Users\dabsd\OneDrive\SEM 3 POLY STUFF\AVP\Assignment 2\ASN2_Student_Resource\SectionA\bin\Debug\net6.0\SectionA.pdb
+C:\Users\dabsd\OneDrive\SEM 3 POLY STUFF\AVP\Assignment 2\ASN2_Student_Resource\SectionA\obj\Debug\net6.0\SectionA.csproj.AssemblyReference.cache
+C:\Users\dabsd\OneDrive\SEM 3 POLY STUFF\AVP\Assignment 2\ASN2_Student_Resource\SectionA\obj\Debug\net6.0\SectionA.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dabsd\OneDrive\SEM 3 POLY STUFF\AVP\Assignment 2\ASN2_Student_Resource\SectionA\obj\Debug\net6.0\SectionA.AssemblyInfoInputs.cache
+C:\Users\dabsd\OneDrive\SEM 3 POLY STUFF\AVP\Assignment 2\ASN2_Student_Resource\SectionA\obj\Debug\net6.0\SectionA.AssemblyInfo.cs
+C:\Users\dabsd\OneDrive\SEM 3 POLY STUFF\AVP\Assignment 2\ASN2_Student_Resource\SectionA\obj\Debug\net6.0\SectionA.csproj.CoreCompileInputs.cache
+C:\Users\dabsd\OneDrive\SEM 3 POLY STUFF\AVP\Assignment 2\ASN2_Student_Resource\SectionA\obj\Debug\net6.0\SectionA.dll
+C:\Users\dabsd\OneDrive\SEM 3 POLY STUFF\AVP\Assignment 2\ASN2_Student_Resource\SectionA\obj\Debug\net6.0\refint\SectionA.dll
+C:\Users\dabsd\OneDrive\SEM 3 POLY STUFF\AVP\Assignment 2\ASN2_Student_Resource\SectionA\obj\Debug\net6.0\SectionA.pdb
+C:\Users\dabsd\OneDrive\SEM 3 POLY STUFF\AVP\Assignment 2\ASN2_Student_Resource\SectionA\obj\Debug\net6.0\SectionA.genruntimeconfig.cache
+C:\Users\dabsd\OneDrive\SEM 3 POLY STUFF\AVP\Assignment 2\ASN2_Student_Resource\SectionA\obj\Debug\net6.0\ref\SectionA.dll
