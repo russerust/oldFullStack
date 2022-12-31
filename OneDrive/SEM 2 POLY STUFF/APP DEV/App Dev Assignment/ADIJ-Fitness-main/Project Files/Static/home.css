@@ -1,0 +1,40 @@
+.car2 {
+  max-width: 50%;
+  max-height:50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.car {
+  max-width:560px;
+  max-height: 315px;
+}
+
+.heading {
+  font-weight:bold;
+}
+
+.bookbar {
+  width: 95%;
+}
+
+
+
+
+
+/* Footer */
+.footer {
+  background-color: black;
+  color:white;
+}
+
+.top-side {
+  text-align: center;
+}
+
+.black {
+  color:#000000;
+  height:5px;
+}
+
+

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}ADIJ Fitness - Shop{% endblock %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'retrieveuser.css')}}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<br>
+<h1>Shop <i class="fa fa-shopping-bag" style="font-size:36px;"></i></h1>
+<br>
+<div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Brand</th>
+            <th>Product</th>
+            <th>Color</th>
+            <th>Size</th>
+            <th>Price</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in item_list %}
+        <tr>
+            <td>{{item.brand}}</td>
+            <td>{{item.product}}</td>
+            <td>{{item.color}}</td>
+            <td>{{item.size}}</td>
+            <td>${{item.price}}</td>
+            <td><a href="/addItem/{{item.id}}"><button class="btn btn-primary">Add to cart</button></a></td>
+            <td><a href="/single/{{item.id}}"><button class="btn btn-primary">Purchase</button></a></td>
+        </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+<br>
+<div>
+    <a href="/cart" style="position:sticky; bottom:20px; right:200px;"><button class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Go to Cart</button></a>
+</div>
+{% endblock %}
+

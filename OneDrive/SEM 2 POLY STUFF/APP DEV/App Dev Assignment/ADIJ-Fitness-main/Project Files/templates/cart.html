@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}ADIJ Fitness - Cart{% endblock %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'retrieveuser.css')}}">
+<br>
+<h2>Cart <i class="fa fa-shopping-cart"></i></h2>
+<div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Brand</th>
+            <th>Product</th>
+            <th>Color</th>
+            <th>Size</th>
+            <th>Price per quantity</th>
+            <th>Quantity</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in items %}
+        <tr>
+            <td>{{item.brand}}</td>
+            <td>{{item.product}}</td>
+            <td>{{item.color}}</td>
+            <td>{{item.size}}</td>
+            <td>${{item.price}}</td>
+            <td>{{item.count}}</td>
+            <td><a href="/api/cart/delete/{{item.id}}"><button class="btn btn-primary">Remove</button></a></td>
+            <td><td><a href="/single/{{item.id}}"><button class="btn btn-primary">Purchase</button></a></td>
+        </tr>
+        <a href="/check" style="position:absolute; bottom:20px; right:50px;"><button class="btn btn-primary">Check out all</button></a>
+        <a href="/shopUI" style="position:absolute; bottom:20px; left:50px;"><button class="btn btn-primary">Back to shop</button></a>
+        {% endfor %}
+        </tbody>
+    </table>
+        <a href="/shopUI" style="position:absolute; bottom:20px; left:50px;"><button class="btn btn-primary">Back to shop</button></a>
+
+</div>
+{% endblock %}

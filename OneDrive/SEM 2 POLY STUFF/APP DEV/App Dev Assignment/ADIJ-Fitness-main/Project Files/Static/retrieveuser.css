@@ -1,0 +1,22 @@
+#search {
+width:300px;
+margin-left:850px;
+margin-top:-50px;
+}
+body {
+background-color:#282C2F;
+}
+
+.table-striped>tbody>tr:nth-child(odd)>td,
+.table-striped>tbody>tr:nth-child(odd)>th {
+   color: white;
+ }
+table tr{
+color:white
+}
+div {
+color:white;
+}
+div .modal-body{
+color: black;
+}

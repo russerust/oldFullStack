@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block title %}ADIJ Fitness - Manage Locations{% endblock %}
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{{url_for('static', filename = 'retrievebookings.css')}}">
+</head>
+<body>
+<br>
+<h1>Manage Locations</h1>
+<br>
+<div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Locations</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>Yio Chu Kang [Headquarters]</td>
+        <td>No Update Allocation Available</td>
+        <td>No Delete Available</td>
+        </tr>
+        {% for id, booking in loc.items() %}
+            <tr>
+                {% if loc != None %}
+                    {% if booking.status == 1 %}
+                    {% if booking.location != "Yio Chu Kang" %}
+                    <td>{{booking.location}}</td>
+                    <td><a href="/updateLocation/{{id}}" class="btn btn-warning">Update</a></td>
+                    <td>
+                        <form action="/deleteLocation/{{id}}" method="POST">
+                            <!-- Button to Open the Modal -->
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                    data-bs-target="#myModal_{{id}}">
+                                Delete
+                            </button>
+
+                            <!-- The Modal -->
+                            <div class="modal" id="myModal_{{id}}">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+
+                                        <!-- Modal Header -->
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">Delete Confirmation</h4>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                        </div>
+
+                                        <!-- Modal body -->
+                                        <div class="modal-body">
+                                            Are you sure you want to delete this Location?
+                                        </div>
+
+                                        <!-- Modal footer -->
+                                        <div class="modal-footer">
+                                            <input type="submit" value="Delete" class="btn btn-danger">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel
+                                            </button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </td>
+                    {% endif %}
+                    {% endif %}
+                {%else%}
+                <td colspan="3">None</td>
+            </tr>
+                {% endif %}
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+
+</body>
+
+{% endblock %}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block title %}ADIJ Fitness - Update User{% endblock %}
+
+{% block content %}
+{% from "includes/_formHelper.html" import render_field %}
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'updateuser.css')}}">
+<h1 class="display-4">Update User</h1>
+<div class="card"><h1 class="font">ADIJ FITNESS</h1>
+<form method="POST" action="" enctype="multipart/form-data">
+    <div class="form-group">
+        {{ render_field(form.email, class="form-control") }}
+    </div>
+    <div class="form-group">
+        {{ render_field(form.name, class="form-control") }}
+    </div>
+    <div class="form-group">
+        <img id="imgProfile" src="/static/image/profile/{{ user.profile_image | default('user.png') }}" alt="{{ user.name }}"
+             width="120" height="120" style="object-fit:cover" class="rounded-circle"/>
+    </div>
+    <div class="form-group">
+        <input id="inputImage" type="file" name="image_file" accept="image/*">
+    </div>
+    <div class="form-group">
+        {{ render_field(form.gender, class="form-control") }}
+    </div>
+    <div class="form-group">
+        {{ render_field(form.birthday, class="form-control datepicker") }}
+    </div>
+    <div class="form-group">
+        {{ render_field(form.user_type, class="form-check") }}
+    </div>
+    <div class="form-group">
+        <input type="reset" name="Reset" id="">
+    </div>
+    <input type="submit" value="Submit" class="btn btn-primary mt-3"/>
+</form>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+$(document).ready(function() {
+    inputImage.onchange = evt => {
+      const [file] = inputImage.files
+      if (file) {
+        imgProfile.src = URL.createObjectURL(file)
+      }
+    }
+});
+</script>
+{% endblock %}

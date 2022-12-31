@@ -1,0 +1,58 @@
+import uuid
+from datetime import datetime
+from constants import date_format, datetime_format
+
+
+class User:
+    gender_dict = {
+        '': 'Select', 'F': 'Female', 'M': 'Male'
+    }
+    user_type_dict = {
+        'C': 'Customer', 'S': 'Staff'
+    }
+
+    status_active = 1
+    status_deleted = 0
+
+    def __init__(self, email, password, name, gender, birthday=None,user_type='C',profile_image='user.png'):
+        self.id = str(uuid.uuid4())
+        self.email = email
+        self.password = password
+        self.name = name
+        self.gender = gender
+        self.birthday = birthday
+        self.user_type = user_type
+        self.status = User.status_active
+        self.time_created = datetime.now()
+        self.time_updated = datetime.now()
+        self.profile_image = profile_image
+
+    def get_gender_str(self):
+        return User.gender_dict[self.gender]
+
+    def get_user_type_str(self):
+        return User.user_type_dict[self.user_type]
+
+    def get_birthday_str(self):
+        if self.birthday is None:
+            return 'Unknown'
+        else:
+            return self.birthday.strftime(date_format)
+
+    def get_time_created_str(self):
+        return self.time_created.strftime(datetime_format)
+
+    def get_time_updated_str(self):
+        return self.time_updated.strftime(datetime_format)
+
+    def __str__(self):
+        return f'ID: {self.id}\n' \
+               f'Email: {self.email}\n' \
+               f'Name: {self.name}\n' \
+               f'Gender: {self.get_gender_str()}\n' \
+               f'Birthday: {self.get_birthday_str()}\n' \
+               f'Profile Image: {self.profile_image}\n' \
+               f'User Type: {self.get_user_type_str()}\n' \
+               f'Status: {self.status}\n' \
+               f'Date Created: {self.get_time_created_str()}\n' \
+               f'Date Updated: {self.get_time_updated_str()}\n'

@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block title %}ADIJ Fitness - Retrieve Users{% endblock %}
+{% block content %}
+{% from "includes/_formHelper.html" import render_field %}
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'retrieveuser.css')}}">
+<h1 class="display-4">Retrieve Users</h1>
+<div style="position:absolute;right:8%">
+<form method="POST" action="" id="search">
+    <div class="form-group">
+        {{ render_field(form.email, class="form-control") }}
+    </div>
+    <input type="submit" value="Search" class="btn btn-primary mt-0"/>
+    </form>
+</div>
+<br><br><br>
+<div>
+    <p>Here are the users:</p>
+</div>
+<div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>User Type</th>
+            <th>Email</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Time Updated</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{user_user_type}}</td>
+            <td>{{user_email}}</td>
+            <td>{{user_name}}</td>
+            <td>{{user_gender}}</td>
+            <td>{{user_time_updated}}</td>
+            {% if user_email != 'diend@gmail.com' %}
+            <td><a href="/updateUser/{{user_id}}" class="btn btn-warning">More info</a></td>
+            <td>
+                <form action="/deleteUser/{{user_id}}" method="POST">
+                    <!-- Button to Open the Modal -->
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#myModal_{{user_id}}">
+                        Delete
+                    </button>
+
+                    <!-- The Modal -->
+                    <div class="modal" id="myModal_{{user_id}}">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Delete Confirmation</h4>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    Are you sure to delete {{user_name}}?
+                                </div>
+
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <input type="submit" value="Delete" class="btn btn-danger">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </td>
+            {%else%}
+            <td>No info</td>
+            <td>No delete</td>
+        </tr>
+        {% endif %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+

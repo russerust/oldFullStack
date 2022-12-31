@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block title %}ADIJ Fitness - Retrieve Programmes{% endblock %}
+
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{{url_for('static', filename = 'retrievebookings.css')}}">
+</head>
+<h1 class="display-4">Retrieve Programmes</h1>
+<div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Filename</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Gym</td>
+            <td>Come and book a gym slot today!</td>
+            <td>gymPic4</td>
+            <td>No Updating Available</td>
+            <td>No Deleting Available</td>
+        </tr>
+        <tr>
+            {% for i in prog_list %}
+            <td>{{i.title}}</td>
+            <td>{{i.desc}}</td>
+            <td>{{i.image}}</td>
+            <td><a href="/updateProg/{{i.id}}" class="btn btn-warning">Update</a></td>
+            <td>
+                <form action="/deleteProg/{{i.id}}" method="POST">
+                    <!-- Button to Open the Modal -->
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#myModal_{{i.id}}">
+                        Delete
+                    </button>
+
+                    <!-- The Modal -->
+                    <div class="modal" id="myModal_{{i.id}}">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Delete Confirmation</h4>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    Are you sure to delete {{i.title}}?
+                                </div>
+
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <input type="submit" value="Delete" class="btn btn-danger">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

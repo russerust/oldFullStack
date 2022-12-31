@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}ADIJ Fitness - Create Programmes{% endblock %}
+
+{% block content %}
+{% from "includes/_formHelper.html" import render_field %}
+<head>
+    <link rel="stylesheet" href="{{url_for('static', filename = 'retrievebookings.css')}}">
+</head>
+<h1 class="display-4">Create Programmes</h1>
+
+<form method="POST" action="" enctype="multipart/form-data">
+    <dl>
+        <p>
+            <input type="file" name="file" class="form-control" autocomplete="off" accept="image/*" required>
+        </p>
+    </dl>
+    {% if filename %}
+        <div>
+            <img src="{{ url_for('display_image', filename=filename) }}">
+        </div>
+    {% endif %}
+    <div class="form-group">
+        {{ render_field(form.title, class="form-control") }}
+    </div>
+    <div class="form-group">
+        {{ render_field(form.description, class="form-control") }}
+    </div>
+    <div class="text-danger mt-2">{{error}}</div>
+    <input type="submit" value="Submit" class="btn btn-primary mt-3"/>
+</form>
+{% endblock %}

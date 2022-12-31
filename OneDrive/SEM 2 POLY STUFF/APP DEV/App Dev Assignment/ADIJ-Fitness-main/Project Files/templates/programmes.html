@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}ADIJ Fitness - Programmes{% endblock %}
+
+{% block content %}
+<head><link rel="stylesheet" href="{{url_for('static', filename = 'home.css')}}"></head>
+<h1 class="display-4">Programmes</h1><br>
+{% if prog_length|length == 0 %}
+      <h1>No Programmes for now! Check again later!</h1>
+{% else %}
+<div class="container">
+  <div class="row row-cols-4" style="margin:auto;width:100%;padding: 10px 10px 10px 10px;">
+
+    {% for prog in prog_list %}
+    <div class="col-6" style="padding-bottom:300px;position:relative;height:650px;">
+      <img src="/static/uploads/{{prog.image}}" style="width:350px;height:245px;position:absolute;top:0px;left:0px;">
+      <div style="position:absolute;top:230px;left:0px;font-weight:900;font-size:40px;">{{prog.title}}</div>
+      <div style="position:absolute;top:295px;left:0px;width:450px;font-size:12px;">{{prog.desc}}</div>
+      <a href="/bookingGym" class="btn btn-primary stretched-link" style="position:absolute;top:390px;left:0px;width:300px;font-size:24px;">Book Now</a>
+      <div class="collapse" id="comments-{{prog.id}}" style="position:absolute;top:560px;left:0px;font-size:15px;">
+        <div class="card">
+          <div class="card-body" id="comment-expanded-{{prog.id}}">
+            {% for comm in comment_list %}
+              {% if comm.post == prog.id %}
+                <div class="d-flex justify-content-between align-items-center">
+                  <a href="#">{{comm.author}}</a>: {{comm.text}}
+                  <div class="btn-group" style="">
+                  <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-bs-toggle="dropdown"></button>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a href="/delete-comment/{{comm.id}}" class="dropdown-item">Delete</a>
+                    </li>
+                  </ul>
+                </div>
+                </div>
+            <br>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      <div style="position:absolute;top:480px;left:0px;font-weight:900;font-size:40px;">
+
+        <form class="input-group" method="POST" action="/create-comment/{{prog.id}}">
+          <input type="text" id="text" name="text" class="form-control" placeholder="Comment something!"/>
+          <button type="submit" class="btn btn-primary">
+            Comment
+          </button>
+        </form>
+
+      </div>
+      <p class="card-text" style="position:absolute;top:525px;left:0px;">
+        {% if prog_comment_count[prog.id] > 0 %}
+        <a data-bs-toggle="collapse" href="#comments-{{prog.id}}" role="button">
+          <button>View Comments/Reviews</button>
+        </a>
+        {% else %}
+        <small class="text-muted">No Comments</small>
+        {% endif %}
+      </p>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+{% endblock %}

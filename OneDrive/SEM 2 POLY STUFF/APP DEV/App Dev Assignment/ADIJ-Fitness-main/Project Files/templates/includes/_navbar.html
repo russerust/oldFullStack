@@ -1,0 +1,113 @@
+<style>
+    .navbar-custom {
+            background-color: black;
+    }
+</style>
+
+<nav class="navbar navbar-expand-sm navbar-custom" style="color:black">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/"><img src="../static/logo.png" style="width:90px;height:90px;" alt="adij logo"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav me-auto">
+                {% if session.user_type != 'S' %}
+                <li class="nav-item">
+                    <a class="nav-link" style="color:white;" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color:white;" href="/shopUI">Shop</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color:white;" href="/programmes">Programmes</a>
+                </li>
+                {% if session.user_type == 'C' %}
+                <li class="nav-item">
+                    <a class="nav-link" style="color:white;" href="/bookings">Bookings</a>
+                </li>
+                {% endif %}
+                {% endif %}
+                {% if session.user_type == 'S' %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" style="color:white;" href="#" role="button" data-bs-toggle="dropdown">Manage
+                        Users</a>
+
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item"  href="/retrieveUsers">Retrieve Users</a></li>
+                        <li><a class="dropdown-item"  href="/userchart">User Chart</a></li>
+                    </ul>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" style="color:white;" href="#" role="button" data-bs-toggle="dropdown">Manage
+                        Bookings</a>
+
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item"  href="/retrieveBooking">Retrieve Bookings</a></li>
+                        <li><a class="dropdown-item"  href="/bookingchart">Booking Chart</a></li>
+                    </ul>
+
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" style="color:white;" href="#" role="button" data-bs-toggle="dropdown">Manage
+                        Programmes</a>
+
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/retrieveProgrammes">Retrieve Programmes</a></li>
+                        <li><a class="dropdown-item" href="/createProgrammes">Create Programmes</a></li>
+                    </ul>
+
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" style="color:white;" href="#" role="button" data-bs-toggle="dropdown">Manage
+                        Locations</a>
+
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/manageLocations">Retrieve Locations</a></li>
+                        <li><a class="dropdown-item" href="/addLocation">Add Locations</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" style="color:white;" href="#" role="button" data-bs-toggle="dropdown">Manage
+                        Products</a>
+
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/createItem">Create product</a></li>
+                        <li><a class="dropdown-item" href="/retrieveItem">Retrieve product</a></li>
+                    </ul>
+                    {% endif %}
+                </li>
+
+
+                {% if session.user_type == 'C' %}
+                <li class="nav-item">
+                    <a class="nav-link" style="color:white;" href="/contactUs">Contact Us</a>
+                </li>
+                {% endif %}
+                {% if session.user_type == 'C' or session.user_type=='S' %}
+                <li class="nav-item">
+                    <a class="nav-link" style="color:white;" href="/userprofile">Profile</a>
+                </li>
+                    <li class="nav-item ms-auto justify-content-end">
+                        <a class="nav-link" style="color:white;" href="/logout">Log out</a>
+                    </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" style="color:white;" href="/contactUs">Contact Us</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" style="color:white;" href="/Signup">Sign up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color:white;" href="/Login">Log in</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+

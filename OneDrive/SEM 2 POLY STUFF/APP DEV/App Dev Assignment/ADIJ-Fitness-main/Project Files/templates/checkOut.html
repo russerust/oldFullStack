@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}ADIJ Fitness - Check Out{% endblock %}
+{% block content %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'retrieveuser.css')}}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<br><br>
+<div>
+    <h4>Checkout<span class="price" style="color:black"><i class="fa fa-shopping-cart"></i></span></h4>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Brand</th>
+            <th>Product</th>
+            <th>Color</th>
+            <th>Size</th>
+            <th>Price per quantity</th>
+            <th>Quantity</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in items %}
+        <tr style="background-color:black">
+            <td>{{item.brand}}</td>
+            <td>{{item.product}}</td>
+            <td>{{item.color}}</td>
+            <td>{{item.size}}</td>
+            <td>{{item.price}}</td>
+            <td>{{item.count}}</td>
+        </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+        <hr>
+        <p>Total: <span class="price" style="color:black"><b>${{sumation}}</b></span></p>
+
+        <a href="/payment" style="position:absolute; bottom:20px; right:50px;"><button class="btn btn-primary">Proceed to payment</button></a>
+
+</div>
+{% endblock %}
+

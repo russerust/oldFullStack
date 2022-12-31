@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}ADIJ Fitness - Payment{% endblock %}
+{% block content %}
+{% from "includes/_formHelper.html" import render_field %}
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'retrieveuser.css')}}">
+<div class="col-75">
+    <form action="" method="POST">
+        {{ form.csrf_token }}
+        <div class="container">
+            <h2>Personal Information</h2>
+            <div class="row">
+                <div class="col-50"></div>
+                <div class="form-group">
+                    {{ render_field(form.name, class="form-control") }}
+                </div>
+                <div class="form-group">
+                    {{ render_field(form.email, class="form-control") }}
+                </div>
+                <div class="form-group">
+                    {{ render_field(form.address, class="form-control") }}
+                </div>
+                <div class="form-group">
+                    {{ render_field(form.city, class="form-control") }}
+                </div>
+                <div class="form-group">
+                    {{ render_field(form.payment, class="form-control") }}
+                </div>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <div><h4>Receipt<span class="price" style="color:black"></span></h4>
+            <h2>Total: <span class="price" style="color:red"><b>${{price}}</b></span></h2></div>
+        <input type="submit" style="position:sticky; bottom:20px; left:1100px;width: 120px;" value="Pay now" class="btn btn-primary mt-3"/>
+    </form>
+</div>
+<br><br>
+{% endblock %}

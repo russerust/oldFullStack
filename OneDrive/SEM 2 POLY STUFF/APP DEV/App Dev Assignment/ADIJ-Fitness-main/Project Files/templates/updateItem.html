@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}ADIJ Fitness - Update Item{% endblock %}
+
+{% block content %}
+{% from "includes/_formHelper.html" import render_field %}
+
+<h1 class="display-4">Update item</h1>
+
+<form method="POST" action="">
+
+    <div class="form-group">
+        {{ render_field(form.brand, class="form-control") }}
+    </div>
+    <div class="form-group">
+        {{ render_field(form.product, class="form-control") }}
+    </div>
+    <div class="form-group">
+        {{ render_field(form.size, class="form-control") }}
+    </div>
+    <div class="form-group">
+        {{ render_field(form.color, class="form-control") }}
+    </div>
+    <div class="form-group">
+        {{ render_field(form.price, class="form-control") }}
+    </div>
+    <div class="text-danger mt-2">{{error}}</div>
+    <input type="submit" value="Update" class="btn btn-primary mt-3"/>
+</form>
+
+{% endblock %}

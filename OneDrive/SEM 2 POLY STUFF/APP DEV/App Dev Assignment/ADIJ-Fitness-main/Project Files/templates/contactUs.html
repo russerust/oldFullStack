@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% block title %}ADIJ Fitness - Contact Us{% endblock %}
+
+{% block content %}
+<h1 class="display-4">Contact Us</h1>
+<!-- Nav tabs -->
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link active" data-bs-toggle="tab" href="#Login">Login</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="tab" href="#Shop">Shop</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="tab" href="#BookingandHelp">Booking and Help</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="tab" href="#Programmes">Programmes</a>
+    </li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+    <div class="tab-pane container-fluid active" id="Login">
+        <br>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Email</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Mr. Alvin Ng</td>
+                <td>Login Management</td>
+                <td><a href="mailto:alvin@adij.sg">alvin@adij.sg</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="tab-pane container-fluid" id="Shop"><br>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Email</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Mr. Ivan Teo</td>
+                <td>Shop Management</td>
+                <td><a href="mailto:ivan@adij.sg">ivan@adij.sg</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="tab-pane container-fluid" id="BookingandHelp"><br>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Email</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Mr. James Tan</td>
+                <td>Booking Management</td>
+                <td><a href="mailto:james@adij.sg">james@adij.sg</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="tab-pane container-fluid " id="Programmes"><br>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Email</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Mr. Daniel Xiao Rong</td>
+                <td>Programmes Management</td>
+                <td><a href="mailto:daniel@adij.sg">daniel@adij.sg</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

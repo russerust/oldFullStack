@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% block title %}ADIJ Fitness - User Profile{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'userprofile.css')}}">
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  height: 680px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+</style>
+<h1 class="display-4" id="head"  style="text-align:center;">User Profile</h1>
+<div class="card" style="border-radius:20px; height:200%;padding-bottom:30px;">
+    <div class="header" style="border-radius:20px">
+        <img id="imgProfile" src="/static/image/profile/{{ user_profile_image | default('user.png') }}" alt="{{ user_name }}"
+             width="220" height="150" style="object-fit:cover" class="rounded-circle"/>
+        <h1 class="user">{{user_name}}</h1><br>
+    </div>
+    <div class="body">
+        <table style="color:black;width:100%;">
+            <tr>
+                <td class="info">Email:</td>
+                <td class="user-info">{{user_email}}</td>
+            </tr>
+            <tr>
+                <td class="info">Gender:</td>
+                <td class="user-info">{{user_gender}}</td>
+            </tr>
+            <tr>
+                <td class="info">Birthday:</td>
+                <td class="user-info">{{user_birthday}}</td>
+            </tr>
+            <tr>
+                <td class="info">User Type:</td>
+                <td class="user-info">{{user_user_type}}</td>
+            </tr>
+            <tr>
+                <td class="info">Account Created:</td>
+                <td class="user-info">{{user_time_created}}</td>
+            </tr>
+            <tr>
+                <td class="info">Last Update:</td>
+                <td class="user-info">{{user_time_updated}}</td>
+            </tr>
+        </table>    </div>
+    <table>
+        <tr>
+            <td><a href="/updateUserProfile/{{user_id}}" class="btn btn-warning" id="update">Update</a></td>
+            <td><a href="/forgotpassword/{{user_id}}" class="btn btn-warning" id="change">Change password</a></td>
+        </tr>
+    </table>
+    <br>
+    {% if user_email.upper() != 'DIEND@GMAIL.COM' %}
+    <form class='delete' action="/deleteUserprofile/{{user_id}}" method="POST">
+        <!-- Button to Open the Modal -->
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                data-bs-target="#myModal_{{user_id}}">
+            Delete
+        </button>
+
+        <!-- The Modal -->
+        <div class="modal" id="myModal_{{user_id}}">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Delete Confirmation</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        Are you sure to delete {{user_name}}?
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <input type="submit" value="Delete" class="btn btn-danger">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </form>
+    {% endif %}
+
+    <br><br>
+</div>
+{% endblock %}

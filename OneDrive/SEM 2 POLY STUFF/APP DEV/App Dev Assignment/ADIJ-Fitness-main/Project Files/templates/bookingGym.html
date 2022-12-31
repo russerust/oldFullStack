@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}ADIJ Fitness - Update Booking{% endblock %}
+
+{% block content %}
+{% from "includes/_formHelper.html" import render_field %}
+<head>
+    <link rel="stylesheet" href="{{url_for('static', filename = 'payment.css')}}">
+</head>
+<br><br>
+<div style="margin:auto; padding:10px;display:flex;" >
+    <div class="card" style="margin-left:auto;margin-right:auto;width:50rem;">
+        <div class="container">
+            <div class="row">
+                <br>
+                <h1 class="display-4">Booking</h1>
+                <form method="POST" action="">
+                    {{ form.csrf_token }}
+
+                    <div class="form-group">
+                        {{ render_field(form.activity, class="form-control") }}
+                    </div>
+                    <div class="form-group">
+                        {{ render_field(form.date, class="form-control datepicker") }}
+                    </div>
+                    <div class="form-group">
+                        {{ render_field(form.location, class="form-control") }}
+                    </div>
+                    <div class="form-group">
+                        {{ render_field(form.time, class="form-control") }}
+                    </div>
+                    <div class="form-group">
+                        {{ render_field(form.payment, class="form-control") }}
+                    </div>
+                    <input type="submit" value="Proceed to payment" class="btn btn-primary mt-3"/>
+                </form>
+            </div>
+        </div>
+        <br>
+    </div>
+</div>
+<!-- Footer -->
+{% endblock %}
